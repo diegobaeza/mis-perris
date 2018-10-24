@@ -1,0 +1,130 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Mis perris</title>
+
+	<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" media="screen,projection"/>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+	
+	<header>
+		<nav class="nav-wrapper ">
+			<div class="container">
+			    <a href="#" class="brand-logo"><img class="responsive-img" src="{% static 'img/logo.png' %}"></a>
+			    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+			    <ul class="right hide-on-med-and-down">
+			      <li><a href="Principal.html" target="icontenido">Inicio</a></li>
+			      <li><a href="#">Quienes somos</a></li>
+			      <li><a href="#">Servicios</a></li>
+			      <li><a href="Contacto.html" target="icontenido">Contáctanos</a></li>
+			    </ul>
+			</div>
+		</nav>
+
+
+		<ul class="sidenav" id="mobile-demo">
+		    <li><a href="Principal.html" target="icontenido">Inicio</a></li>
+		    <li><a href="#">Quienes somos</a></li>
+		    <li><a href="#">Servicios</a></li>
+		    <li><a href="Contacto.html" target="icontenido">Contáctanos</a></li>
+		</ul>
+	
+	</header>
+	
+	<section id="carrusel-rs" class="row">
+		
+
+		<div class="slider col s12">
+		    <ul class="slides col s12">
+		      <li >
+		        <img class="img-corr" src="{% static 'img/adoptados/Apolo.jpg' %}">
+		      </li>
+		      <li>
+				<img class="img-corr" src="{% static 'img/adoptados/Duque.jpg' %}">
+		      </li>
+		     
+		      <li>
+		        <img class="img-corr" src="{% static 'img/adoptados/Tom.jpg' %}">
+		      </li>
+		    </ul>
+		  </div>
+
+		<div class = "col s10 m12 l12">
+			<ul id="redes-sociales" class="col s10 m9 l6 offset-s2 offset-m3 offset-l4">
+				<li class="col s3 m2 l2"><a href="#"><i class="responsive-img"><img src="{% static 'img/redes-sociales/facebook.png' %}"></i></a></li>
+				<li class="col s3 m2 l2"><a href="#"><i class="responsive-img"><img src="{% static 'img/redes-sociales/google-plus.png' %}"></i></a></li>
+				<li class="col s3 m2 l2"><a href="#"><i class="responsive-img"><img src="{% static 'img/redes-sociales/instagram.png' %}"></i></a></li>
+				<li class="col s3 m2 l2"><a href="#"><i class="responsive-img"><img src="{% static 'img/redes-sociales/sobre.png' %}"></i></a></li>
+			</ul>
+		<div>
+	</section>
+	
+ 	<div id="Contenido">
+ 		<iframe src="Principal.html" name="icontenido" scrolling="no" onload="redimensionariframe(this)"></iframe>
+ 	</div>
+	
+
+	 <footer id="footer" class="page-footer teal lighten-2">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Desarrollo Web y Mobile</h5>
+               
+              </div>
+              
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2018 Copyright
+            </div>
+          </div>
+        </footer>
+
+	
+	<script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/javascript.js' %}"></script>
+	<script>
+		
+		  $(document).ready(function(){
+		    $('.sidenav').sidenav();
+		  });
+
+		
+		  $(document).ready(function(){
+		    $('.slider').slider({
+		    	height: 300
+		    });
+		  });
+
+
+		  $(document).ready(function(){
+		    $('.materialboxed').materialbox();
+		  });
+
+			//redimensionamiento del iframe segun el contenido
+		    function redimensionariframe(obj) {
+			    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+			  }
+	</script>
+
+	<script type="text/javascript">
+		window.onload = function() {
+		    window.parent.document.getElementById("icontenido").height = document.getElementById("Contenido").offsetHeight;
+		    }
+	</script>
+</body>
+</html>
