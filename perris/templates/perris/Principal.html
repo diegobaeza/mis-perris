@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +8,8 @@
 	<!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-      <link rel="stylesheet" type="text/css" href="css/styles.css">
+      <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"  media="screen,projection"/>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -26,13 +27,13 @@
 
 			<p  class="col s12">Rescatamos perros en situacion de peligro y/o abandono. Los rehabilitamos y los preparamos para buscarles hogar.</p>
 
-			<img id="img-rescate" class="responsive-img col s9 offset-s3" src="img/rescate.jpg">
+			<img id="img-rescate" class="responsive-img col s9 offset-s3" src="{% static 'img/rescate.jpg' %}">
 
 			
 		</section>
 
 		<section id="crowfunding" class="col s12 m6">
-			<img id="img-crowfunding" class="responsive-img col s9" src="img/crowfunding.jpg">
+			<img id="img-crowfunding" class="responsive-img col s9" src="{% static 'img/crowfunding.jpg' %}">
 			<h5 class="col s12">CROWFUNDING</h4>
 			<h6 class="col s12">FINANCIAMENTO</h5>
 			<div class="divider col s4"></div>
@@ -48,26 +49,26 @@
 
 		<div class="col s12 m7 offset-m2 container">
 			<div class="col s4 m4">
-				<img class="responsive-img materialboxed" src="img/rescatados/Oso.jpg">
+				<img class="responsive-img materialboxed" src="{% static 'img/rescatados/Oso.jpg' %}">
 			</div>
 			<div class="col s4 m4">
-				<img class="responsive-img materialboxed"  src="img/rescatados/Chocolate.jpg">
+				<img class="responsive-img materialboxed"  src="{% static 'img/rescatados/Chocolate.jpg' %}">
 			</div>
 			<div class="col s4 m4">
-				<img class="responsive-img materialboxed" src="img/rescatados/Bigotes.jpg">
+				<img class="responsive-img materialboxed" src="{% static 'img/rescatados/Bigotes.jpg' %}">
 			</div>
 			
 		</div>
 		
 		<div class="col s12 m7 offset-m2 container">
 			<div class="col s4">
-				<img class="responsive-img materialboxed" src="img/rescatados/Maya.jpg">
+				<img class="responsive-img materialboxed" src="{% static 'img/rescatados/Maya.jpg' %}">
 			</div>
 			<div class="col s4">
-				<img class="responsive-img materialboxed" src="img/rescatados/Pexel.jpg">
+				<img class="responsive-img materialboxed" src="{% static 'img/rescatados/Pexel.jpg' %}">
 			</div>
 			<div class="col s4">
-				<img class="responsive-img materialboxed" src="img/rescatados/Luna.jpg">
+				<img class="responsive-img materialboxed" src="{% static 'img/rescatados/Luna.jpg' %}">
 			</div>
 
 			
@@ -76,7 +77,7 @@
 
 		<div class="col s12 m7 offset-m2 container">
 			<div class="col s4">
-				<img class="responsive-img materialboxed" src="img/rescatados/Wifi.jpg">
+				<img class="responsive-img materialboxed" src="{% static 'img/rescatados/Wifi.jpg' %}">
 			</div>
 		</div>
 			
@@ -85,7 +86,7 @@
 	</section>
 
 
-	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
 	<script>
 		
 		  $(document).ready(function(){

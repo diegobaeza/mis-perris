@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +8,8 @@
 	<!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-      <link rel="stylesheet" type="text/css" href="css/styles.css">
+      <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" media="screen,projection"/>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -20,7 +21,7 @@
 	
 	 <div class="container row">
 	 	<div class="col s12">
-	 		<h2 class="col s12">Contacto</h2>
+	 		<h2 class="col s12">Registro</h2>
 	 		<div class="divider col s7 m6 l4 offset-s1"></div>
 
 	 		<div class="row">
@@ -28,7 +29,7 @@
 		          <div class="input-field inline">
 		            <input id="email_inline" type="email" class="validate">
 		            <label for="email_inline">Email</label>
-		            <span class="helper-text" data-error="wrong" data-success="right">ejemplo@email.com</span>
+		            <span class="helper-text" data-error="wrong" data-success="right">ejemplo@ejemplo.com</span>
 		          </div>
 		        </div>
 	 		</div>
@@ -102,7 +103,7 @@
 	</div>
 
 	
-	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
 	<script>
 		$(document).ready(function(){
 	    $('.datepicker').datepicker();
