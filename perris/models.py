@@ -70,11 +70,12 @@ class Usuario(models.Model):
 	region = models.ForeignKey(Region, on_delete=models.CASCADE)
 	ciudad = models.ForeignKey(Ciudad, on_delete=models.CASCADE)
 	tipoVivienda = models.ForeignKey(TipoVivienda, on_delete=models.CASCADE)
-	contrasena = forms.CharField(widget=forms.PasswordInput)
-	tipoUsuario = models.ForeignKey(TipoUsuario, on_delete=models.CASCADE)
+	contrasena = models.CharField(max_length=20, default='DEFAULT')
+	
 
 	def __str__(self):
-		return (self.nombre + " " + self. apellidos)
+		return (self.nombre + " " + self. apellido)
+
 #Tabla RegistroAdopcion
 
 class RegistroAdopcion(models.Model):
@@ -82,4 +83,4 @@ class RegistroAdopcion(models.Model):
 	rescatado = models.ForeignKey(Rescatado, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return (self.run + " " +self.rescatado)
+		return (self.run + " " +self.rescatado)()
