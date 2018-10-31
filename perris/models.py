@@ -1,5 +1,7 @@
 from django.db import models
 from django import forms
+from django.contrib.auth.models import User
+from django.conf import settings
 # Create your models here.
 
 # Tabla Region
@@ -32,7 +34,7 @@ class TipoUsuario(models.Model):
 
 #Tabla TipoVivienda
 class TipoVivienda(models.Model):
-	nombre = models.CharField(max_length=20)
+	nombre = models.CharField(max_length=40)
 	descripcion = models.TextField()
 
 	def __str__(self):
@@ -60,8 +62,9 @@ class Ciudad(models.Model):
 
 
 #Tabla Usuario
-class Usuario(models.Model):
-	run = models.IntegerField()
+class Persona(models.Model):
+	user = models.OneToOneField(User, on_delete= models.CASCADE)
+	run = models.IntegerField(unique=True)
 	nombre = models.CharField(max_length=30)
 	apellido = models.CharField(max_length=40)
 	fechaNacimiento = models.DateField()
@@ -70,7 +73,6 @@ class Usuario(models.Model):
 	region = models.ForeignKey(Region, on_delete=models.CASCADE)
 	ciudad = models.ForeignKey(Ciudad, on_delete=models.CASCADE)
 	tipoVivienda = models.ForeignKey(TipoVivienda, on_delete=models.CASCADE)
-	contrasena = models.CharField(max_length=20, default='DEFAULT')
 	
 
 	def __str__(self):
@@ -79,7 +81,7 @@ class Usuario(models.Model):
 #Tabla RegistroAdopcion
 
 class RegistroAdopcion(models.Model):
-	run = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+	run = models.ForeignKey(Persona, on_delete=models.CASCADE)
 	rescatado = models.ForeignKey(Rescatado, on_delete=models.CASCADE)
 
 	def __str__(self):

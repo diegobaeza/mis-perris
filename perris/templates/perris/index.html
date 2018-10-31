@@ -8,7 +8,7 @@
 	<!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}" media="screen,projection"/>
       <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 
       <!--Let browser know website is optimized for mobile-->
@@ -20,19 +20,23 @@
 <body>
 	
 	<header>
-		<nav class="nav-wrapper ">
-			<div class="container">
-			    <a href="#" class="brand-logo"><img class="responsive-img" src="{% static 'img/logo.png' %}"></a>
-			    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+		<div class="navbar-fixed">
+			<nav id="navegacion">
+				<div class="container nav-wrapper">
+				    <a href="#" class="brand-logo"><img class="responsive-img" src="{% static 'img/logo.png' %}"></a>
+				    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-			    <ul class="right hide-on-med-and-down">
-			      <li><a href="{% url 'principal' %}" target="icontenido">Inicio</a></li>
-			      <li><a href="#">Quienes somos</a></li>
-			      <li><a href="#">Servicios</a></li>
-			      <li><a href="{% url 'registro' %}" target="icontenido">Registro</a></li>
-			    </ul>
-			</div>
-		</nav>
+				    <ul class="right hide-on-med-and-down">
+				      <li><a href="{% url 'principal' %}" target="icontenido">Inicio</a></li>
+				      <li><a href="#">Quienes somos</a></li>
+				      <li><a href="#">Servicios</a></li>
+				      <li><a href="{% url 'registro' %}" target="icontenido">Registro</a></li>
+				      <li><a href="{% url 'login' %}" target="icontenido">Login</a></li>
+				    </ul>
+				</div>
+			</nav>	
+		</div>
+		
 
 
 		<ul class="sidenav" id="mobile-demo">

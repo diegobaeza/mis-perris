@@ -8,6 +8,10 @@ admin.site.register(TipoUsuario)
 admin.site.register(TipoVivienda)
 admin.site.register(Rescatado)
 admin.site.register(Ciudad)
-admin.site.register(Usuario)
+admin.site.register(Persona)
 admin.site.register(RegistroAdopcion)
+
+
+admin.site.site_header = "Mis perris"
+admin.site.site_title = "Mis perris"
 
