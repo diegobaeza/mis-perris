@@ -43,13 +43,15 @@ class TipoVivienda(models.Model):
 
 #Tabla Rescatado
 class Rescatado(models.Model):
-	fotografia = models.FileField(blank=True)
+	
+	nombre = models.CharField(max_length=30, blank=False)
 	razaPredominante = models.CharField(max_length=30)
+	fotografia = models.FileField(blank=True)
 	descripcion = models.TextField()
 	estado = models.ForeignKey(Estado, on_delete = models.CASCADE)
 
 	def __str__(self):
-		return self.fotografia
+		return self.nombre
 
 
 #Tabla Ciudad

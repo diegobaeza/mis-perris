@@ -5,7 +5,9 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+
 
 
 # Create your views here.
@@ -48,6 +50,7 @@ def registro(request):
 	return render(request, 'perris/Registro.html', {'form' : form})
 
 def login(request):
+
 	if request.method == 'POST':
 		forml = AuthenticationForm(request.POST)
 
@@ -63,7 +66,7 @@ def login(request):
 				
 				if access.is_staff:
 
-					return HttpResponseRedirect('/admin')
+					return HttpResponseRedirect('/administracion/')
 
 				return HttpResponse('Logeado')
 			else:
@@ -74,7 +77,67 @@ def login(request):
 			
 
 	else:
+		
 		forml = AuthenticationForm()
 
 	return render(request, 'perris/login.html', {'forml': forml})
+
+
+def administracion(request):
+	if request.method == 'POST':
+		form = AgregarForm(request.POST)
+		
+		if form.is_valid():
+			
+			return redirect(principal)
+
+	else:
+
+		form = AgregarForm()
+
+
+	return render(request, 'perris/Administracion.html', {'form' : form})
+
+
+
+def agregarMascota(request):
+	if request.method == 'POST':
+		form = AgregarForm(request.POST)
+		
+		if form.is_valid():
+
+			rescatado = Rescatado(fotografia = form.cleaned_data['fotografia'],
+						nombre = form.cleaned_data['nombre'],
+						razaPredominante = form.cleaned_data['razaPredominante'],
+						descripcion = form.cleaned_data['descripcion'],
+						estado = form.cleaned_data['estado']
+						)
+
+			rescatado.save()
+			return redirect(principal)
+
+	else:
+
+		form = AgregarForm()
+
+
+	return render(request, 'perris/agregar.html', {'form' : form})
+
+
+class ListaRescatado(ListView):
+	model = Rescatado
+	template_name = 'perris/lista_rescatado.html'
+
+
+class RescatadoUpdate(UpdateView):
+	model = Rescatado
+	form_class = AgregarForm
+	template_name = 'perris/editar.html'
+	success_url = reverse_lazy('listaRescatado')
+
+
+class RescatadoDelete(DeleteView):
+	model = Rescatado
+	template_name = 'perris/eliminar.html'
+	success_url = reverse_lazy('listaRescatado')
 

@@ -72,4 +72,30 @@ class LoginForm(AuthenticationForm):
 			'run' : 'run',
 			'password' : 'Contraseña'
 			}
+
+class AgregarForm(forms.ModelForm):
+	
+
+	class Meta:
+		model = Rescatado
+		fields = (
+			
+			'nombre',
+			'razaPredominante',	
+			'fotografia',
+			'descripcion',
+			'estado'
+			)
+
+		labels = {
+			'fotografia' : '',	
+			'nombre' : 'Nombre',
+			'razaPredominante' : 'Raza Predominante',
+			'descripcion' : 'Descripcion',
+			'estado' : 'Estado'
+			
+			}
+
+	
+
 		

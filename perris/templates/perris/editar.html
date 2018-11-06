@@ -22,13 +22,13 @@
 	 <div class="container row">
 	 	<div class="col s12">
 
-
+	 		
 	 		<div>
-	 			<form class="col s12" action="{% url 'registro' %}" method='POST'>
+	 			<form class="col s12" action="{% url 'editarRescatado' pk=rescatado.id %}" method='POST'>
 	 				{% csrf_token %}
 	 				<div class="row">
 	 					{% for field in form %}
-		 					<div class="input-field col s6">
+		 					<div class="input-field col s7">
 		 						{{ field.label_tag }}
 		 						{{ field.errors}}
 		 						
@@ -36,10 +36,10 @@
 		 					</div>	 	
 	 					{% endfor %}				
 	 				</div>
-	 			<button class="btn waves-effect waves-light" type="submit" name="action">Enviar
-	 				<i class="maetiral-icons right"></i>
-	 			</button>
-			</form>
+		 			<button class="btn waves-effect waves-light" type="submit" name="action">Editar
+		 				<i class="maetiral-icons right"></i>
+		 			</button>
+				</form>
 	 		</div>
 	 		
 	 </div>

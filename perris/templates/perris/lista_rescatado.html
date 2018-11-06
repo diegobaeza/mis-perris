@@ -19,32 +19,50 @@
 </head>
 <body>
 	
-	 <div class="container row">
-	 	<div class="col s12">
+	{% block content %}
 
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<td>#</td>
+				<td>Nombre</td>
+				<td>Raza Predominante</td>
+				<td>Fotografia</td>
+				<td>Descripcion</td>
+				<td>Estado</td>
+				<td>Acciones</td>
+			</tr>
+		</thead>
 
-	 		<div>
-	 			<form class="col s12" action="{% url 'registro' %}" method='POST'>
-	 				{% csrf_token %}
-	 				<div class="row">
-	 					{% for field in form %}
-		 					<div class="input-field col s6">
-		 						{{ field.label_tag }}
-		 						{{ field.errors}}
-		 						
-		 						{{ field }}
-		 					</div>	 	
-	 					{% endfor %}				
-	 				</div>
-	 			<button class="btn waves-effect waves-light" type="submit" name="action">Enviar
-	 				<i class="maetiral-icons right"></i>
-	 			</button>
-			</form>
-	 		</div>
-	 		
-	 </div>
-	</div>
+		<tbody>
+			{% if object_list %}
+			{% for rescatado in object_list %}
 
+			<tr>
+				<td>{{ rescatado.id }}</td>
+				<td>{{ rescatado.nombre }}</td>
+				<td>{{ rescatado.razaPredominante }}</td>
+				<td>{{ rescatado.fotografia }}</td>
+				<td>{{ rescatado.descripcion }}</td>
+				<td>{{ rescatado.estado.nombre }}</td>
+				
+				<td>
+					<a href="{% url 'editarRescatado' pk=rescatado.id %}" class="btn btn-primary">Editar</a>
+					<a href="{% url 'eliminarRescatado' pk=rescatado.id %}" class="btn btn-danger">Eliminar</a>
+				</td>
+
+			</tr>
+			{% endfor %}
+
+			{% else %}
+
+			<h1>No hay registros de rescatados</h1>
+
+			{% endif %}
+		</tbody>
+	</table>
+
+	{% endblock %}
 	
 	<script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
 	<script>
@@ -60,3 +78,5 @@
 	</script>
 </body>
 </html>
+
+
